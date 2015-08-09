@@ -40,6 +40,8 @@ public class Concordance {
 				prev = ci;
 			}
 		}
+		if(prev == 46) // trim trailing .
+			word.deleteCharAt(word.length() - 1);
 		saveWord(word.toString(), sentence);
 		return results;
 	}
