@@ -1,5 +1,5 @@
 package cs.ses
 
-object ExchangeSystem extends App {
+object ExchangeSystemApp extends App {
   
 }
