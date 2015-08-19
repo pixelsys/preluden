@@ -15,11 +15,11 @@ class ExchangeSystemTest extends FunSuite {
     system.add(newOrder)
     val status1 = system.openInt(ric, Sell)
     assert(null != status1)
-    assert(1 == status1.length)
-    assert(100.2 == status1(0).price)
-    assert(1000 == status1(0).quantity)
+    assert(1 == status1.size)
+    assert(100.2 == status1.head._1)
+    assert(1000 == status1.head._2)
     assert(true == system.openInt(ric, Buy).isEmpty)
-    assert(0 == system.exQty(ric, user1))
+    assert(Some(0) == system.exQty(ric, user1))
   }
   
   def order2 = {
