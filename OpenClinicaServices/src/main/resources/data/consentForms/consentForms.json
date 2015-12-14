@@ -1,0 +1,42 @@
+[
+	{
+        "name": "3b) Proband adult with rare disease (or for their adult relatives joining the Project) Version 2.1",
+        "id": "1",
+        "stratificationQuestions" : 
+        [ "I would want additional genetic results to be looked for and fed back to my clinical team",
+          "I would want Pre-symptomatic Carrier Testing information to be looked for and fed back to my clinical team"
+        ]
+     }  ,
+     {
+        "name": "3c) Parents of child aged under 16 ,Version 2.0",
+        "id": "2",
+        "stratificationQuestions" : ["I would want additional genetic results to be looked for and fed back to my clinical team"]
+    },
+    {
+        "name": "3d) Parents of a (deceased) child aged under 16, baby or fetus, Version 2.0",
+        "id": "3",
+        "stratificationQuestions" : []
+    },
+        {
+        "name": "3e) Nominated representatives, relatives or friends of a (deceased) adult ,Version 2.0",
+        "id": "4",
+        "stratificationQuestions" :  
+         [ "I would want additional genetic results to be looked for and fed back to my clinical team",
+          "I would want Pre-symptomatic Carrier Testing information to be looked for and fed back to my clinical team"
+        ]
+    },
+    {
+        "name": "4b) Personal Consultees of proband adult with a rare genetic disease to advise on participation,Version 2.3",
+        "id": "5",
+        "stratificationQuestions" : [
+            "I would want additional genetic results to be looked for and fed back to my clinical team",
+            "I would want Pre-symptomatic Carrier Testing information to be looked for and fed back to my clinical team"]
+    },
+	{
+		"name": "5)  Assent form for: children and young people with a rare genetic disease aged 6-15 ,Version 2.0",
+		"id": "6",
+		"stratificationQuestions" : [ ]
+	}
+	
+
+]

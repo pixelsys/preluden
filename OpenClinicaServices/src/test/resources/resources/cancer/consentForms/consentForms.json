@@ -1,0 +1,15 @@
+[
+	{
+		"name":"Patient with cancer(or suspected cancer) Version 2.0, 20.01.2015",
+		"id": "1",
+		"stratificationQuestions" : 
+			[ "I would want additional genetic findings to be looked for and fed back to my clinical team" ]
+	},
+	
+	{
+		"name":"Personal consultee of patients with cancer (or suspected cancer) Version 2.2, 11.02.2015",
+		"id": "2",
+		"stratificationQuestions" : 
+			[ "I would want additional genetic findings to be looked for and fed back to my clinical team" ] 
+	}
+]

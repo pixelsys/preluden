@@ -1,0 +1,26 @@
+{"DiseaseGroups": [
+    {
+        "id": "10950",
+        "name": "Cardiovascular disorders",
+        "subGroups": [
+            {
+                "id": "10951",
+                "name": "Connective Tissues Disorders and Aortopathies",
+                "specificDisorders": [{
+                    "id": "11021",
+                    "name": "Familial Thoracic Aortic Aneurysm Disease",
+                    "eligibilityQuestion": {
+                        "date":"30/04/2015",
+                        "version":"1"
+                    },
+                    "shallowPhenotypes": [
+                        {
+                            "name": "Mitral valve prolapse",
+                            "id": "HP:0001634"
+                        }
+                    ]
+                }]
+            }
+        ]
+    }
+]}

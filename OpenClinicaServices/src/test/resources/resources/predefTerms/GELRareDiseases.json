@@ -1,0 +1,27 @@
+[    {    
+       "disease" : "Rare inherited haematological disorders",
+           "terms" : [
+
+                   { 
+                       "name" : "Failure to thrive",
+                       "id"   : "HP:0001508"
+                   },
+                  
+                   { 
+                       "name" : "Obesity",
+                       "id"   : "HP:0001513"
+                   }                  
+           ]
+       },
+       {    
+       "disease" : "GSTT-RD-11-01-01 Alport syndrome",
+           "terms" : [
+                   
+                   {
+                   		 "id":"HP:0000924",
+                   		"name":"Abnormality of the skeletal system"
+                   }              
+           ]
+       }
+   ]  
+

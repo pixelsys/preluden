@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<participant>
+    <participantId>1234567890</participantId>
+    <nhsNumber>1111111111</nhsNumber>
+    <dateOfBirth>26/01/1980</dateOfBirth>
+    <surname>SMITH </surname>
+    <fornames>JOHN</fornames>
+    <barCodeFileName>dataMatrixBarcode.png</barCodeFileName>
+    <logoFileName>resources/pdfxsl/logo.jpg</logoFileName>
+    <barcodeName0>NHS Number</barcodeName0>
+    <barcodeValue0>1111111111</barcodeValue0>
+    <barcodeFile0>barcode0.pdf</barcodeFile0>
+    <barcodeName1>Hospital Number</barcodeName1>
+    <barcodeValue1>12345</barcodeValue1>
+    <barcodeFile1>barcode1.pdf</barcodeFile1>
+    <barcodeName2>Participant ID</barcodeName2>
+    <barcodeValue2>1234567890</barcodeValue2>
+    <barcodeFile2>barcode2.pdf</barcodeFile2>
+    <barcodeName3>Family ID</barcodeName3>
+    <barcodeValue3>12345</barcodeValue3>
+    <barcodeFile3>barcode3.pdf</barcodeFile3>
+    <barcodeName4>Clinic ID (ODS Code)</barcodeName4>
+    <barcodeValue4>123</barcodeValue4>
+    <barcodeFile4>barcode4.pdf</barcodeFile4>
+    <barcodeName5>Disease Type</barcodeName5>
+    <barcodeValue5>Rare Diseases</barcodeValue5>
+    <barcodeFile5>barcode5.pdf</barcodeFile5>
+    <sampleTube0>EDTA#1</sampleTube0>
+    <sampleType0>DNA Blood Germline</sampleType0>
+    <sampleBarcodeFile0>sample0.pdf</sampleBarcodeFile0>
+    <sampleTube1>EDTA#2</sampleTube1>
+    <sampleType1>DNA Blood Germline</sampleType1>
+    <sampleBarcodeFile1>sample1.pdf</sampleBarcodeFile1>
+    <sampleTube2>PST</sampleTube2>
+    <sampleType2>LiHep Plasma</sampleType2>
+    <sampleBarcodeFile2>sample2.pdf</sampleBarcodeFile2>
+    <sampleTube3>PAXgene RNA</sampleTube3>
+    <sampleType3>RNA Blood</sampleType3>
+    <sampleBarcodeFile3>sample3.pdf</sampleBarcodeFile3>
+    <sampleTube4>SST</sampleTube4>
+    <sampleType4>Serum</sampleType4>
+    <sampleBarcodeFile4>sample4.pdf</sampleBarcodeFile4>
+    <slfVersion>1.1.1</slfVersion>
+    <slfDate>03/03/2015</slfDate>
+</participant>

@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>	Web Service Status Check</title>
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+
+ <link rel="stylesheet" href="css/OCWidgets-style.css">
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+<script>
+jQuery(function() {
+
+	check_PredfinedTersmService();
+	$("input#PredefinedTermsService").on('click',function(){
+		check_PredfinedTersmService();
+	});	
+	
+	
+	check_ConsentService();
+	$("input#ConsentService").on('click',function(){
+		check_ConsentService();
+	});
+	
+	
+	$("input#PDFService").on('click',function(){
+		call_PDFService();
+	});
+
+	
+});
+
+
+	<!-- ****************************** PredfinedTersmService **************************************** -->
+	function check_PredfinedTersmService(){	
+		
+		var result_PredefinedTermsService = call_PredefinedTermsService($("input#diseaseGroup").val(),$("input#subGroup").val(),$("input#specificDisorder").val());
+		if (result_PredefinedTermsService.message == null)
+			result_PredefinedTermsService.message = "";
+		$("td#PredefinedTermsServiceStatus").html(result_PredefinedTermsService.status + '<br>' + result_PredefinedTermsService.message);
+		
+		if (result_PredefinedTermsService.status == 'success'){
+			$("td#PredefinedTermsServiceStatus").parent().addClass("success");
+			$("td#PredefinedTermsServiceStatus").parent().removeClass("danger");
+		}		
+		else if (result_PredefinedTermsService.status == 'error'){
+			$("td#PredefinedTermsServiceStatus").parent().removeClass("success");
+			$("td#PredefinedTermsServiceStatus").parent().addClass("danger");		
+		}
+			
+		$("#PredefinedTermsServiceResult").val(JSON.stringify(result_PredefinedTermsService.result));
+		
+		$("#PredefinedTermsServiceLink").attr("href",result_PredefinedTermsService.link);
+ 		
+	}
+	function call_PredefinedTermsService(diseasegroup,subGroup,specificDisorder){		
+		
+		var inputParams = {
+				predefinedTermsSourceName : "DiseaseOntology.json",    	    
+				diseaseGroup: 		diseasegroup, 
+			    subGroup: 			subGroup,
+			    specificDisorder:	specificDisorder,	    	
+			    dataSourceName : "hp.obo",
+			    loadNarrowTermsTreeFlat : "true"
+		    }; 
+	    
+		var result = {
+				result:'',
+				status:'succes',
+				message:'',
+				link:  "/OCService/OntologyService/PredefinedTermsService?"+
+										"predefinedTermsSourceName=DiseaseOntology.json"+    	    
+										"&diseaseGroup=" + diseasegroup + 
+									    "&subGroup="+	subGroup +
+									    "&specificDisorder=" + specificDisorder +	    	
+									    "&dataSourceName=hp.obo"+
+									    "&loadNarrowTermsTreeFlat=true"
+		};
+		
+		jQuery.ajax({
+			    type: 'GET',
+			    url: "/OCService/OntologyService/PredefinedTermsService",
+			    dataType: 'json',
+			    success: function(term) { 				
+					result.status = 'success';
+					result.result = term;
+				},
+				error: function(jqXHR,textStatus,errorThrown){
+					
+					if (jqXHR.statusText != "OK"){
+						if(errorThrown.message == undefined)
+							result.message =  errorThrown ;
+						else	
+							result.message = errorThrown.message;
+						result.status = 'error';
+					}
+					
+				},
+			    data: inputParams,
+			    async:false
+			});
+			return result;
+		}
+	
+	
+	
+	<!-- ****************************** ConsentService **************************************** -->
+	
+	function check_ConsentService(){			
+		
+		var result = call_ConsentService();
+		if (result.message == null)
+			result.message = "";
+		
+		$("td#ConsentServiceStatus").html(result.status + '<br>' + result.message);
+		
+		if (result.status == 'success'){
+			$("td#ConsentServiceStatus").parent().addClass("success");
+			$("td#ConsentServiceStatus").parent().removeClass("danger");
+		}		
+		else if (result.status == 'error'){
+			$("td#ConsentServiceStatus").parent().removeClass("success");
+			$("td#ConsentServiceStatus").parent().addClass("danger");		
+		}
+			
+		
+		$("#ConsentServiceResult").val(JSON.stringify(result.result));
+		$("#ConsentServiceLink").attr("href",result.link);
+	}
+	
+	function call_ConsentService(){		
+		
+		var result = {
+				result:'',
+				status:'succes',
+				message:'',
+				link:  "/OCService/lookupServices/ConsentForm"
+		};
+		
+		jQuery.ajax({
+			    type: 'GET',
+			    url: "/OCService/lookupServices/ConsentForm",
+			    dataType: 'json',
+			    success: function(term) { 				
+					result.status = 'success';
+					result.result = term;
+				},
+				error: function(jqXHR,textStatus,errorThrown){
+					
+					if (jqXHR.statusText != "OK"){
+						if(errorThrown.message == undefined)
+							result.message =  errorThrown ;
+						else	
+							result.message = errorThrown.message;
+						result.status = 'error';
+					}
+					
+				},
+			    async:false
+			});
+			return result;
+		}
+	
+	
+	
+	<!-- *************** PDF Service ****************** -->
+	
+	function call_PDFService(){
+		
+		 var linkParameters ="participantId="+encodeURIComponent($("input#participantId").val()) +"&" + 
+							 "nhsNumber="	+ encodeURIComponent($("input#nhsNumber").val()) 	+ "&"+
+							 "surname="  	+ encodeURIComponent($("input#surname").val())   	+ "&"+
+							 "forenames="	+ encodeURIComponent($("input#forenames").val()) 	+ "&"+
+							 "dateOfBirth="	+ encodeURIComponent($("input#dateOfBirth").val())	+ "&"+
+							 "sampleType="  + encodeURIComponent("DNA Blood Germline") + "&"+
+							 "clinicId="	+ encodeURIComponent($("input#clinicId").val()) + "&" +
+							 "hospitalNumber="	+ encodeURIComponent($("input#hospitalNumber").val()) + "&" +
+							 "diseaseType=" + encodeURIComponent("Rare Diseases") +"&"+
+							 "familyId=" 	+ encodeURIComponent($("input#familyId").val());
+		 
+		 
+		var location = "/OCService/pdfService/participant?" + linkParameters;			
+ 		var win = window.open(location, '_blank');
+ 		win.focus();
+ 			
+	}
+		
+	
+	
+
+</script>
+
+
+<style>
+form .form-group {
+    margin-bottom: 4px !important; 
+}
+</style>
+
+
+</head>
+<body>
+    <div class="container">
+    
+    <h2>Web Service Status</h2>
+    <table class="table table-striped">
+	    <thead>
+	    	<tr>
+	    		<th>Name</th>
+	    		<th>Parameters</th>
+	    		<th>Status</th>
+	    		<th>Result</th>
+	    		<th>Link</th>
+	    	</tr>
+	    </thead>
+    	<tbody>
+	  		<tr>
+	  			<td>PredefinedTermsService</td>
+	  			<td>
+	  				<table>
+	  					<tr>
+	  						<td>diseaseGroup:</td>
+	  						<td><input id ="diseaseGroup" value="Cardiovascular disorders"></td>
+	  					</tr>
+	  					<tr>
+	  						<td>subGroup:</td>
+	  						<td><input id="subGroup" value="Connective tissue disorders and aortopathies"></td>
+	  					</tr>
+	  					<tr>
+	  						<td>specificDisorder:</td>
+	  						<td><input id="specificDisorder" value="Familial Thoracic Aortic Aneurysm Disease"></td>
+	  					</tr>
+	  					<tr>
+	  						<td><input type='button' value='Test' id="PredefinedTermsService"/></td>
+	  						<td></td>
+	  					</tr>
+	  				</table>			
+	  			</td>
+	  			
+	  			<td id="PredefinedTermsServiceStatus">
+	  			</td>
+	  			
+	  			<td >
+	  				<textarea id="PredefinedTermsServiceResult" rows="4" cols="50"></textarea>
+	  			</td>
+	  			
+	  			<td >
+	  				<a href="" id="PredefinedTermsServiceLink"> Click here </a>
+ 	  			</td>	
+	  		</tr>
+	  		
+	  		<tr>
+	  			<td>ConsentService</td>
+	  			<td>
+	  				<table>	  					 
+	  					<tr>
+	  						<td><input type='button' value='Test' id="ConsentService"/></td>
+	  						<td></td>
+	  					</tr>
+	  				</table>			
+	  			</td>
+	  			
+	  			<td id="ConsentServiceStatus">
+	  			</td>
+	  			
+	  			<td >
+	  				<textarea id="ConsentServiceResult" rows="4" cols="50"></textarea>
+	  			</td>
+	  			
+	  			<td >
+	  				<a href="" id="ConsentServiceLink"> Click here  </a>
+ 	  			</td>	
+	  		</tr>
+	  		
+	  		
+	  		
+	  		<tr>
+	  			<td>PDF Download</td>
+	  			<td>
+	  				<table>
+	  					<tr>
+	  						<td>participantId:</td>
+	  						<td><input id ="participantId" value="1234567890"></td>
+	  					</tr>
+	  					<tr>
+	  						<td>nhsNumber:</td>
+	  						<td><input id="nhsNumber" value="1111111111"></td>
+	  					</tr>
+	  					<tr>
+	  						<td>surname:</td>
+	  						<td><input id="surname" value="SMITH"></td>
+	  					</tr>
+	  					
+	  					<tr>
+	  						<td>forenames:</td>
+	  						<td><input id="forenames" value="JOHN"></td>
+	  					</tr>
+	  					<tr>
+	  						<td>dateOfBirth:</td>
+	  						<td><input id="dateOfBirth" value="06/01/1970"></td>
+	  					</tr>
+	  					<tr>
+	  						<td>sampleType:</td>
+	  						<td><input id="sampleType" value="DNA Blood Germline"></td>
+	  					</tr>
+	  					
+	  					<tr>
+	  						<td>clinicId:</td>
+	  						<td><input id="clinicId" value="GEL123"></td>
+	  					</tr>
+	  					<tr>
+	  						<td>hospitalNumber:</td>
+	  						<td><input id="hospitalNumber" value="12345"></td>
+	  					</tr>
+	  					<tr>
+	  						<td>diseaseType:</td>
+	  						<td><input id="diseaseType" value="Rare Diseases"></td>
+	  					</tr>
+	  					<tr>
+	  						<td>familyId:</td>
+	  						<td><input id="familyId" value="123"></td>
+	  					</tr>	  					
+	  					
+	  					<tr>
+	  						<td><input type='button' value='Download' id="PDFService"/></td>
+	  						<td></td>
+	  					</tr>
+	  				</table>			
+	  			</td>
+	  			
+	  			<td id="PDFServiceStatus">
+	  			</td>
+	  			
+	  			<td >
+	  				
+	  			</td>
+	  			
+	  			<td >
+ 	  			</td>	
+	  		</tr>
+	  		
+
+
+	  	</tbody>
+  		
+	</table>
+
+	</div>
+
+</body>
+</html>

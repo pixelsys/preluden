@@ -1,0 +1,18 @@
+[
+	{
+		"name": "Version 1.0 dated 25.08.2014",
+		"id": "1",
+		"stratificationQuestions" : 
+			[ "I would want additional genetic findings to be looked for and fed back to my clinical team",
+			  "I would want Pre-symptomatic Carrier Testing information to be looked for and fed back to my clinical team"
+		    ]
+	},
+	{
+		"name": "Version 2.0 dated 14.10.2014",
+		"id": "2",
+		"stratificationQuestions" : 
+			[ "I would want additional genetic findings to be looked for and fed back to my clinical team",
+			  "I would want Pre-symptomatic Carrier Testing information to be looked for and fed back to my clinical team"
+		    ]
+	}
+]
