@@ -1,0 +1,320 @@
+
+
+
+
+
+
+<html lang="en">
+<head>
+
+<title>OC Widgets test page</title>
+
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<link rel="stylesheet"	href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css"></link>
+<link rel="stylesheet" href="css/OCWidgets-style0.0.2.css"></link>
+
+<script src="js/prototype.js"></script>
+<script src="js/jquery-1.9.1.js"></script>
+
+<script src="js/OCWidgets.js"></script>
+
+
+
+
+<script>
+jQuery(function() {
+	jQuery("#addbtnNewForm").click(function(){
+		var newRow = jQuery("#probandBlankRow").find("tr:first").clone();
+		var nameRadio = 'radioBox'+ Math.floor((Math.random() * 100) + 1);
+		
+		newRow.find('#yesRadioBox').attr('name',  nameRadio);
+		newRow.find('#noRadioBox').attr('name',   nameRadio);
+		
+		jQuery("#probandNewForm tr:nth-last-child(2)").before(newRow);
+	});	
+	
+	
+	jQuery("#addbtnEditForm").click(function(){
+		var newRow = jQuery("#probandBlankRow").find("tr:first").clone();
+		var nameRadio = 'radioBox'+ Math.floor((Math.random() * 100) + 1);
+		newRow.find('#yesRadioBox').attr('name', nameRadio);
+		newRow.find('#noRadioBox').attr('name', nameRadio);
+		
+		jQuery("#probandEditForm tr:nth-last-child(2)").before(newRow);
+	});	
+	
+	
+	
+});
+</script>
+</head>
+<body>
+
+<div id="my-fixture">some complex content here</div>
+
+	
+
+    <div class="container"> 
+    
+    
+    
+	    <table>
+			<tbody>
+				<tr>
+				  	<td class="table_cell_noborder"><b>Event:</b></td>
+				    <td>Event1</td>
+					<td class="table_cell_top"><span><b>Sex:</b></span></td>
+				    <td class="table_cell_noborder" style="padding-left:3px">M</td>    
+				</tr>			
+				<tr>
+			        <td class="table_cell_noborder"></td>
+			        <td class="table_cell_noborder"></td>
+				    <td class="table_cell_top"><b>Age At Enrollment:</b></td>
+				    <td class="table_cell_noborder">44 Years - 21 Days</td>
+				</tr>			
+				<tr>
+				    <td class="table_cell_noborder"><b>Study:</b></td>
+				    <td class="table_cell_noborder">Rare inherited haematological disorders</td>
+				    <td class="table_cell_top"><b>Date of Birth:</b></td>
+				    <td class="table_cell_noborder">01-Dec-1970</td>
+			    </tr>
+				<tr>
+			         <td class="table_cell_noborder">Site</td>
+			         <td class="table_cell_noborder">NA</td>
+			         <td class="table_cell_top">Person ID</td>
+			         <td class="table_cell_noborder">Patient1 </td>    
+				</tr>
+				<tr>  
+				</tr>
+				<tr>
+					<td class="table_cell_left" >Interviewer Name</td>
+					<td class="table_cell_left">Interview Date</td>
+					<td class="table_cell_left"></td>
+				</tr>
+			</tbody>
+		</table>
+	
+	
+	   <div id="probandNewTable">
+	        <h2>ProbandForm [New Form]</h2>
+			<table >
+				 <tr class="aka_stripes">
+		        		<td class="aka_header_border"> 
+		        			<b>Title:Proband details</b>
+		        		</td>
+		    	 </tr>
+		    	 <tr>
+		    	 	<td>
+		    	 		<table>
+		    	 			<tr>
+		    	 				<td>
+		    	 					<div class="aka_group_header">
+        								<strong>Eligibility</strong>
+    								</div>
+    								<table id="probandNewForm" class="table table-striped">		
+										<thead>
+											<tr>
+										       <th>Question</th>
+									           <th>Answer</th>		           
+									           <th></th>								
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td class="aka_padding_norm aka_cellBorders">
+													<label for="Eligibility_0input61"></label>
+													<input name="defValueEligibility_0input61" type="hidden" id="defValueEligibility_0input61" value=""></input> 
+													<input name="Eligibility_0input61" id="Eligibility_0input61" tabindex="2" type="text" value=""></input>											
+												</td>
+												
+												<td class="aka_padding_norm aka_cellBorders">
+													<input name="defValueEligibility_0input62" type="hidden" id="defValueEligibility_0input62" value=""></input>
+													<label for="Eligibility_0input62"></label>
+													<input id="IG_CLINI_ELIGIBILITY1_0input62" type="radio" value="yes" name="IG_CLINI_ELIGIBILITY1_0input62" ></input> 
+													Yes
+													<input id="IG_CLINI_ELIGIBILITY1_0input62" type="radio" value="no" name="IG_CLINI_ELIGIBILITY1_0input62" ></input> 
+													No	
+												</td>
+												
+												<td class="aka_padding_norm aka_cellBorders">
+													<input name="Eligibility_0.newRow" type="hidden" value="yes"></input>
+													<button stype="remove" type="button" template="Eligibility" class="button_remove">X</button>
+												</td>
+											</tr>
+											<tr style="display: none;"></tr>
+											<tr>
+												<td>		
+													<button class="btn" id="addbtnNewForm">Add</button>
+												</td>
+											</tr> 
+										</tbody>
+									</table>    								
+		    	 				</td>
+		    	 			</tr>
+		    	 		</table>	
+		    	 	</td>
+		    	 </tr> 
+	    	</table>
+    	</div>
+    		
+		
+        <br/>
+        <hr/>         
+        
+        
+        
+        
+        
+        
+        
+       <div id="probandEditTable">
+	        
+	        <h2>ProbandForm [Edit Form]</h2>
+	        
+	        <table >
+				 <tr class="aka_stripes">
+		        		<td class="aka_header_border"> 
+		        			<b>Title:Proband--details--EDIT MODE</b>
+		        		</td>
+		    	 </tr>
+		    	 <tr>
+		    	 	<td>
+		    	 	 <table>
+		    	 	 	<tr>
+		    	 	 		<td>
+			    	 	 		 <div class="aka_group_header">
+									<span class="aka_group_header">Eligibility</span>
+								</div>
+								<table id="probandEditForm" class="table table-striped">		
+									<thead>
+										<tr>
+									       <th>Question</th>
+								           <th>Answer</th>		           
+								           <th></th>								
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td class="aka_padding_norm aka_cellBorders">
+												<label for="Eligibility_0input61"></label>
+												<input name="defValueEligibility_0input61" type="hidden" id="defValueEligibility_0input61" value=""></input> 
+												<input name="Eligibility_0input61" id="Eligibility_0input61" tabindex="2" type="text" value="EditQuestion1"></input>
+											
+											</td>
+											
+											<td class="aka_padding_norm aka_cellBorders">
+												<input name="defValueEligibility_0input62" type="hidden" id="defValueEligibility_0input62input" value=""></input>
+												<label for="Eligibility_0input62"></label>
+											    <input id="editRadio1" type="radio" value="yes" name="editRadio1" checked="yes"></input> 
+												Yes
+												<input id="editRadio11" type="radio" value="no" name="editRadio1" ></input> 
+												No
+												 
+											</td>
+											
+											<td class="aka_padding_norm aka_cellBorders">
+												<input name="Eligibility_0.newRow" type="hidden" value="yes"></input>
+												<button stype="remove" type="button" template="Eligibility" class="button_remove">X</button>
+											</td>
+										</tr>
+									
+									
+									
+										<tr>
+											<td class="aka_padding_norm aka_cellBorders">
+												<label for="Eligibility_0input610"></label>
+												<input name="defValueEligibility_0input610" type="hidden" id="defValueEligibility_0input610" value=""></input> 
+												<input name="Eligibility_0input61" id="Eligibility_0input61" tabindex="2" type="text" value="EditQuestion2"></input>
+											
+											</td>
+											
+											<td class="aka_padding_norm aka_cellBorders">
+												<input name="defValueEligibility_0input620" type="hidden" id="defValueEligibility_0input620" value=""></input>
+												<label for="Eligibility_0input620"></label>
+												<input id="editRadio2" type="radio" value="yes" name="editRadio2"></input> 
+												Yes
+												<input id="editRadio21" type="radio" value="no" name="editRadio2"  checked="no"></input> 
+												No
+											</td>
+											
+											<td class="aka_padding_norm aka_cellBorders">
+												<input name="Eligibility_00.newRow" type="hidden" value="yes"></input>
+												<button stype="remove" type="button" template="Eligibility" class="button_remove">X</button>
+											</td>
+										</tr>				
+										<tr>
+											<td class="aka_padding_norm aka_cellBorders">
+												<label for="Eligibility_0input6100"></label>
+												<input name="defValueEligibility_0input6100" type="hidden" id="defValueEligibility_0input6100" value=""></input> 
+												<input name="Eligibility_0input61" id="Eligibility_0input61" tabindex="2" type="text" value="EditQuestion3"></input>
+											
+											</td>
+											
+											<td class="aka_padding_norm aka_cellBorders">
+												<input name="defValueEligibility_0input6200" type="hidden" id="defValueEligibility_0input620" value=""></input>
+												<label for="Eligibility_0input6200"></label>
+												<input id="editRadio3" type="radio" value="yes" name="editRadio3" checked="yes"></input> 
+												Yes
+												<input id="editRadio31" type="radio" value="no" name="editRadio3" ></input> 
+												No
+											</td>
+											
+											<td class="aka_padding_norm aka_cellBorders">
+												<input name="Eligibility_00.newRow" type="hidden" value="yes"></input>
+												<button stype="remove" type="button" template="Eligibility" class="button_remove">X</button>
+											</td>
+										</tr>				
+										
+										
+										
+										<tr style="display: none;"></tr>
+										<tr>
+											<td>		
+												<button class="btn" id="addbtnEditForm">Add</button>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+		    	 	 		
+		    	 	 		</td>
+		    	 	 	</tr>
+		    	 	 	
+		    	 	 </table>
+		    	 	</td>
+		    	 </tr>
+		    </table>
+		</div>
+        <br/>
+        <hr/>       
+        
+        
+        
+        <div style="display:none;">
+        	<table id="probandBlankRow">
+        	<tr>
+				<td class="aka_padding_norm aka_cellBorders">
+					<label for="Eligibility_0input61"></label>
+					<input name="defValueEligibility_0input61" type="hidden" id="defValueEligibility_0input61" value=""></input>
+					<input name="Eligibility_0input61" id="Eligibility_0input61" tabindex="2" type="text" value=""></input>
+				</td>
+				
+				<td class="aka_padding_norm aka_cellBorders">
+					<input name="defValueEligibility_0input62" type="hidden" id="defValueEligibility_0input63" value=""></input>
+					<label for="Eligibility_0input62"></label>
+					<input id="yesRadioBox" type="radio" value="yes" name="IG_CLINI_ELIGIBILITY1_0input6200"></input> 
+						Yes
+					 <input id="noRadioBox" type="radio" value="no" name="IG_CLINI_ELIGIBILITY1_0input6200" ></input> 
+						No
+				</td>
+				
+				<td class="aka_padding_norm aka_cellBorders">
+					<input name="Eligibility_0.newRow" type="hidden" value="yes"></input>
+					<button stype="remove" type="button" template="Eligibility" class="button_remove">X</button>
+				</td>
+				</tr>
+        	</table>
+        </div>
+	</div>
+</body>
+</html>

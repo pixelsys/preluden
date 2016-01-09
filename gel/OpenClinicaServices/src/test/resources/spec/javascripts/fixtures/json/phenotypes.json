@@ -1,0 +1,55 @@
+[	
+	{ 	"name":"pheno1", 
+		"id":"HP:0001",
+		"narrowTerms": [
+		
+							{
+								"id": "HP:0001",
+								"name": "pheno1",
+								"narrowTerms": [],
+								"broaderTerms": []
+							},
+		
+							{
+								"id": "HP:00011",
+								"name": "pheno11",
+								"narrowTerms": [],
+								"broaderTerms": []
+							},
+							{
+								"id": "HP:00012",
+								"name": "pheno12",
+								"narrowTerms": [],
+								"broaderTerms": []
+							}
+						]
+	
+	 },
+	{ 	"name":"pheno2", 
+		"id":"HP:0002",
+		"narrowTerms": [
+		
+							{
+								"id": "HP:0002",
+								"name": "pheno2",
+								"narrowTerms": [],
+								"broaderTerms": []
+							},
+							{
+								"id": "HP:00021",
+								"name": "pheno21",
+								"narrowTerms": [],
+								"broaderTerms": []
+							},
+							{
+								"id": "HP:00022",
+								"name": "pheno22",
+								"narrowTerms": [],
+								"broaderTerms": []
+							}
+						]
+	
+		
+		
+	}
+] 

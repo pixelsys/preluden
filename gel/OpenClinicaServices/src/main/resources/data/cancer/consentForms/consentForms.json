@@ -1,0 +1,16 @@
+[
+	{
+		"name":"3a) Proband adult with cancer (or suspected cancer), version 2.0",
+		"id": "1",
+		"stratificationQuestions" : 
+			[ "I would want additional genetic findings to be looked for and fed back to my clinical team" ]
+	},
+	
+	{
+		"name":"4a) Personal Consultees of proband adult with cancer (or suspected cancer) to advise on participation, version 2.3",
+		"id": "2",
+		"stratificationQuestions" : 
+			[ "I would want additional genetic findings to be looked for and fed back to my clinical team" ] 
+	}
+
+]

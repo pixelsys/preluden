@@ -1,0 +1,17 @@
+CODE	ALT_CODE	USAGE	USAGE_UK	DESCRIPTION	MODIFIER_4	MODIFIER_5	QUALIFIERS	GENDER_MASK	MIN_AGE	MAX_AGE	TREE_DESCRIPTION
+A99	A99	DEFAULT	3
+A99.0	A990	DEFAULT	3	
+A99.1	A991	DEFAULT	3	SimpleTest	Simple_Desc			
+A00	A00	DEFAULT	3	Cholera	Cholera_Desc							
+A00.0	A000	DEFAULT	3	Cholera due to Vibrio cholerae 01, biovar cholerae							
+A00.1	A001	DEFAULT	3	Cholera due to Vibrio cholerae 01, biovar eltor							
+A00.9	A009	DEFAULT	3	Cholera, unspecified							
+A01	A01	DEFAULT	3	Typhoid and paratyphoid fevers							
+A01.0	A010	DEFAULT	3	Typhoid fever							
+A01.1	A011	DEFAULT	3	Paratyphoid fever A							
+A01.2	A012	DEFAULT	3	Paratyphoid fever B							
+A01.3	A013	DEFAULT	3	Paratyphoid fever C							
+A01.4	A014	DEFAULT	3	Paratyphoid fever, unspecified							
+A02	A02	DEFAULT	3	Other salmonella infections
+A09	A09	DEFAULT	3	A	Simple_Desc1	Simple_Desc2
+A09	A09	DEFAULT	3	A		Simple_Desc2

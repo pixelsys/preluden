@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OC Widgets test page</title>
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<script src="js/OCWidgets.js"></script>
+
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+
+ <link rel="stylesheet" href="css/OCWidgets-style.css">
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+<script>
+jQuery(function() {
+
+	// This function just simulates the addition of a new table row.
+	// It is not part of the widget library
+	var i = 1;
+
+	jQuery("#newRowBtn1").on('click',function(){
+	 
+ 		jQuery("#newrow1 table tr input[type=radio]").attr("name", "radio" + (i++)+200);
+		jQuery("#newrow1 table tr").clone().appendTo(jQuery(this).parents("table tbody"));
+	});
+	jQuery("#newRowBtn2").on('click',function(){
+		jQuery("#newrow1 table tr input[type=radio]").attr("name", "radio" + (i++)+500);
+		jQuery("#newrow1 table tr").clone().insertBefore(jQuery(this).parents("table tbody").find("tr:last").prev());
+	});
+
+	
+	jQuery("#addbtnNewForm").click(function(){
+		
+ 		var newRow = jQuery("#newRow").find("tr:first").clone();
+		var nameRadio = 'radioBox'+ Math.floor((Math.random() * 100) + 1);
+		newRow.find('#radioBox').attr('name',  nameRadio);
+		jQuery("#phenotypeNewForm tr:nth-last-child(2)").before(newRow);
+ 	});	
+	
+	
+	jQuery("#addbtnEditForm").click(function(){
+ 		var newRow = jQuery("#newRow").find("tr:first").clone();
+		var nameRadio = 'radioBox'+ Math.floor((Math.random() * 100) + 1);
+		newRow.find('#radioBox').attr('name',  nameRadio);
+		jQuery("#phenotypeEditForm tr:nth-last-child(2)").before(newRow);
+	});	
+	
+	
+	jQuery("#AdditionalAddbtnNewForm").click(function(){
+ 		var newRow = jQuery("#newRow").find("tr:first").clone();
+		var nameRadio = 'radioBox'+ Math.floor((Math.random() * 100) + 100);
+		newRow.find('#radioBox').attr('name',  nameRadio);
+		jQuery("#AdditionalphenotypeNewForm tr:nth-last-child(2)").before(newRow);
+	});	
+	
+		
+	
+	
+});
+
+
+
+	
+</script>
+
+
+<style>
+form .form-group {
+    margin-bottom: 4px !important; 
+}
+</style>
+
+
+</head>
+<body>
+    <div class="container">
+    
+    
+    
+    
+     
+    
+		
+	
+		<h1>Test page for Open Clinica widgets</h1>
+		<table>
+			<tr>
+				<td><b>Study:</b></td>
+				<td>Rare inherited haematological disorders</td>
+			</tr>
+		</table>
+		
+		
+		
+		
+		
+		<table>
+			<tbody>
+				<tr>
+					<td class="table_cell_left">
+						<table>
+							<tr>
+								<td>84</td>
+								<td valign="top" class="aka_text_block">
+									Has the sample linkage form been printed?
+								</td>
+								<td>
+									<input id="input228" tabindex="1" type="radio" name="input228" value="yes">
+									<input id="input228" tabindex="1" type="radio" name="input228" value="no">
+								</td>
+                                
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		
+		
+		
+		<br>
+	    <br>
+	    <br>
+	    <!-- <button id="download"> Downlado Participant Sample PDF file </button>
+	    <a style="display:none" id='downloadLink' href="/OCService/pdfService/participant?participantId=RD-789467382647&nhsNumber=99999999+999+9&surname=Soheil&fornames=Smith&dateOfBirth=26-12-1900&sampleType=DNA%2520Blood%2520Germline&clinicId=SD89&diseaseType=Rare%2520Diseases">
+	    PATH PATH
+	    </a> -->
+	    
+	
+	   <br>
+	   <br>
+   
+   
+   
+		<hr/>
+		<h2>Ontology lookup input box [New Form]</h2>
+		<span class="aka_group_header">Basic Phenotyping</span>
+		<table id="phenotype1" class="table table-striped">
+			<thead>
+
+				<tr>
+				  	<td class="table_cell_noborder"><b>Event:</b></td>
+				    <td>Event1</td>
+					<td class="table_cell_top"><span><b>Sex:</b></span></td>
+				    <td class="table_cell_noborder" style="padding-left:3px">M</td>    
+				</tr>			
+				<tr>
+			        <td class="table_cell_noborder"></td>
+			        <td class="table_cell_noborder"></td>
+				    <td class="table_cell_top"><b>Age At Enrollment:</b></td>
+				    <td class="table_cell_noborder">44 Years - 21 Days</td>
+				</tr>			
+				<tr>
+				    <td class="table_cell_noborder"><b>Study:</b></td>
+				    <td class="table_cell_noborder">GSTT-RD-11-01-01 Alport syndrome</td>
+				    <td class="table_cell_top"><b>Date of Birth:</b></td>
+				    <td class="table_cell_noborder">01-Dec-1970</td>
+			    </tr>
+				<tr>
+			         <td class="table_cell_noborder">Site</td>
+			         <td class="table_cell_noborder">NA</td>
+			         <td class="table_cell_top">Person ID</td>
+			         <td class="table_cell_noborder">Patient1 </td>    
+				</tr>
+				<tr>  
+				</tr>
+				<tr>
+					<td class="table_cell_left" >Interviewer Name</td>
+					<td class="table_cell_left">Interview Date</td>
+					<td class="table_cell_left"></td>
+				</tr>
+			</tbody>
+		</table>
+	
+	<div id="phenotypeNewForm">
+			<h2>Ontology lookup input box [New Form]</h2>
+			<span class="aka_group_header">Basic Phenotyping</span>
+			<table id="phenotype1" class="table table-striped">
+				<thead>
+					<tr>
+				       <th>Phenotype Description</th>
+			           <th>Phenotype Identifier</th>
+			           <th>HPO Build number</th>
+			           <th>Phenotype present</th>
+			           <th>Laterality</th>
+			           <th>Onset</th>
+			           <th>Progression</th>
+			           <th>Severity</th>
+			           <th>Spatial pattern</th>
+			           <th></th>								
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<input id="sakudhakcnsda1-hidden" class="form-control" type="hidden"></input>
+							<input id="sakudhakcnsda1" class="form-control"></input>
+						</td>
+						<td>
+							<input id="sakudhakcnsda2-hidden" class="form-control" type="hidden"></input>
+							<input id="sakudhakcnsda2" class="form-control"></input>
+						</td>
+						<td>
+							<input id="sakudhakcnsda3-hidden" class="form-control" type="hidden"></input>
+							<input id="sakudhakcnsda3" class="form-control"></input>
+						</td>
+						
+						<td>
+							<input type="radio" name="radio00000" value="Yes">Yes</input>
+							<input type="radio" name="radio00000" value="No">No</input>
+							<input type="radio" name="radio00000" value="Unknown">Unknown</input>
+						</td>
+						
+						<td>
+							<input id="sakudhakcnsda4-hidden" class="form-control" type="hidden"></input>
+							<input id="sakudhakcnsda4" class="form-control"></input>
+						</td>
+						<td>
+							<input id="sakudhakcnsda5-hidden" class="form-control" type="hidden"></input>
+							<input id="sakudhakcnsda5" class="form-control"></input>
+						</td>
+						<td>
+							<input id="sakudhakcnsda6-hidden" class="form-control" type="hidden"></input>
+							<input id="sakudhakcnsda6" class="form-control"></input>
+						</td>
+						<td>
+							<input id="sakudhakcnsda7-hidden" class="form-control" type="hidden"></input>
+							<input id="sakudhakcnsda7" class="form-control"></input>
+						</td>
+						<td>
+							<input id="sakudhakcnsda8-hidden" class="form-control" type="hidden"></input>
+							<input id="sakudhakcnsda8" class="form-control"></input>
+						</td>
+						
+						<td>
+							<input name="Basic_Phenotyping_0.newRow" type="hidden" value="yes"></input>
+							<button stype="remove" type="button" template="Basic_Phenotyping" class="button_remove"></button>
+						</td>
+						
+					</tr>
+					<tr style="display: none;">ADDED BY OC</tr>
+					<tr>
+						<td>		
+							<button class="btn" id="addbtnNewForm">Add new Row</button>
+						</td>
+					</tr> 
+				</tbody>
+			</table>
+			
+		</div>
+	
+		 
+		
+		
+		
+		
+		
+		
+		
+		<div id="AdditionalphenotypeNewForm">
+			<h2>Ontology lookup input box [New Form]</h2>
+			<span class="aka_group_header">Additional Phenotyping</span>
+			<table id="Additionalphenotype1" class="table table-striped">
+				<thead>
+					<tr>
+				       <th>Phenotype Description</th>
+			           <th>Phenotype Identifier</th>
+			           <th>HPO Build number</th>
+			           <th>Phenotype present</th>
+			           <th>Laterality</th>
+			           <th>Onset</th>
+			           <th>Progression</th>
+			           <th>Severity</th>
+			           <th>Spatial pattern</th>
+			           <th></th>								
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<input id="sakudhakcnsda1-hidden" class="form-control" type="hidden"></input>
+							<input id="sakudhakcnsda1" class="form-control"></input>
+						</td>
+						<td>
+							<input id="sakudhakcnsda2-hidden" class="form-control" type="hidden"></input>
+							<input id="sakudhakcnsda2" class="form-control"></input>
+						</td>
+						<td>
+							<input id="sakudhakcnsda3-hidden" class="form-control" type="hidden"></input>
+							<input id="sakudhakcnsda3" class="form-control"></input>
+						</td>
+						
+						<td>
+							<input type="radio" name="radio00000" value="Yes">Yes</input>
+							<input type="radio" name="radio00000" value="No">No</input>
+							<input type="radio" name="radio00000" value="Unknown">Unknown</input>
+						</td>
+						
+						<td>
+							<input id="sakudhakcnsda4-hidden" class="form-control" type="hidden"></input>
+							<input id="sakudhakcnsda4" class="form-control"></input>
+						</td>
+						<td>
+							<input id="sakudhakcnsda5-hidden" class="form-control" type="hidden"></input>
+							<input id="sakudhakcnsda5" class="form-control"></input>
+						</td>
+						<td>
+							<input id="sakudhakcnsda6-hidden" class="form-control" type="hidden"></input>
+							<input id="sakudhakcnsda6" class="form-control"></input>
+						</td>
+						<td>
+							<input id="sakudhakcnsda7-hidden" class="form-control" type="hidden"></input>
+							<input id="sakudhakcnsda7" class="form-control"></input>
+						</td>
+						<td>
+							<input id="sakudhakcnsda8-hidden" class="form-control" type="hidden"></input>
+							<input id="sakudhakcnsda8" class="form-control"></input>
+						</td>
+						
+						<td>
+							<input name="Basic_Phenotyping_0.newRow" type="hidden" value="yes"></input>
+							<button stype="remove" type="button" template="Basic_Phenotyping" class="button_remove"></button>
+						</td>
+						
+					</tr>
+					<tr style="display: none;">ADDED BY OC</tr>
+					<tr>
+						<td>		
+							<button class="btn" id="AdditionalAddbtnNewForm">Add new Row</button>
+						</td>
+					</tr> 
+				</tbody>
+			</table>
+			
+		</div>
+		
+		
+		
+		
+		<table id="newRow" style="display: none;">
+			<tbody>
+				<tr>
+					<td>
+						<input id="sakudhakcnsda1-hidden" class="form-control" type="hidden"></input>
+						<input id="sakudhakcnsda1" class="form-control"></input>
+					</td>
+					<td>
+						<input id="sakudhakcnsda2-hidden" class="form-control" type="hidden"></input>
+						<input id="sakudhakcnsda2" class="form-control"></input>
+					</td>
+					<td>
+						<input id="sakudhakcnsda3-hidden" class="form-control" type="hidden"></input>
+						<input id="sakudhakcnsda3" class="form-control"></input>
+					</td>
+					
+					<td>
+						<input type="radio" name="radioBox" id="radioBox" value="Yes">Yes</input>
+						<input type="radio" name="radioBox" id="radioBox" value="No">No</input>
+						<input type="radio" name="radioBox" id="radioBox" value="Unknown">Unknown</input>
+					</td>
+					
+					<td>
+						<input id="sakudhakcnsda4-hidden" class="form-control" type="hidden"></input>
+						<input id="sakudhakcnsda4" class="form-control"></input>
+					</td>
+					<td>
+						<input id="sakudhakcnsda5-hidden" class="form-control" type="hidden"></input>
+						<input id="sakudhakcnsda5" class="form-control"></input>
+					</td>
+					<td>
+						<input id="sakudhakcnsda6-hidden" class="form-control" type="hidden"></input>
+						<input id="sakudhakcnsda6" class="form-control"></input>
+					</td>
+					<td>
+						<input id="sakudhakcnsda7-hidden" class="form-control" type="hidden"></input>
+						<input id="sakudhakcnsda7" class="form-control"></input>
+					</td>
+					<td>
+						<input id="sakudhakcnsda8-hidden" class="form-control" type="hidden"></input>
+						<input id="sakudhakcnsda8" class="form-control"></input>
+					</td>
+					
+					<td>
+						<input name="Basic_Phenotyping_0.newRow" type="hidden" value="yes"></input>
+						<button stype="remove" type="button" template="Basic_Phenotyping" class="button_remove"></button>
+					</td>
+					
+				</tr>
+			</tbody>
+		</table>
+		
+	
+	 
+		
+	
+		
+		<h2>Email address validator</h2>
+		<div class="ui-widget">
+			<div>
+				<span class="oc-email"></span>
+				<label for="email">Email address: </label> 
+				<input id="email">
+			</div>
+		</div>
+		<br/>
+		<hr/>
+		<h2>NHS Number Validator</h2>
+		<div class="ui-widget">
+			<div>
+				<span class="oc-nhsnumber"></span>
+				<label for="nhsno">NHS Number: </label> 
+				<input id="nhsno">
+			</div>
+		</div>
+		<p>(Examples: "9434765919", "4010232137")</p>
+		<br/>
+		<hr/>
+		<h2>Number Validator</h2>
+		<div class="ui-widget">
+			<div>
+				<span class="oc-number"></span>
+				<label for="number">Number: </label> 
+				<input id="number">
+			</div>
+		</div>
+		<br/>
+		<hr/>
+		<h2>Phone Number Validator</h2>
+		<div class="ui-widget">
+			<div>
+				<span class="oc-phone"></span>
+				<label for="phoneno">Phone Number: </label> 
+				<input id="phoneno">
+			</div>
+		</div>
+		<br/>
+		<hr/>
+		<h2>Regex Validator</h2>
+		<div class="ui-widget">
+			<div>
+				<span class="oc-regex" data-regex="^[abc]$"></span>
+				<label for="regex">RegEx: </label> 
+				<input id="regex">
+			</div>
+		</div>
+		<br/>
+		<hr/>
+		<h2>"Other, please select"</h2>
+		<div class="ui-widget">
+			<div>
+				<span class="oc-other"></span>
+				<label for="myselect">Select a category: </label>
+				<select id="myselect">
+					<option>Option 1</option>
+					<option>Option 2</option>
+					<option>Option 3</option>
+					<option>Option 4</option>
+					<option>Option 5</option>
+				</select>
+			</div>
+		</div>
+		<br/>
+		<hr/>
+		
+		<h2>Consent Form List (NEW FORM)</h2>
+        <div class="ui-widget">
+            <div>
+                <span class="oc-consentlookup"></span>
+                <label for="consentFormType">Consent Form Type:</label>
+                <input id="consentFormType">
+                <p>input is hidden here!</p>
+            </div>
+        </div>
+        <br/>
+        <hr/>
+      
+
+
+        <h2>Consent Form List (EDIT)</h2>
+        <div class="ui-widget">
+            <div>
+                <span class="oc-consentlookup"></span>
+                <label for="consentFormType">Consent Form Type:</label>
+                <input id="consentFormType" value="Version 2.0 dated 14.10.2014">
+                <p>input is hidden here!</p>
+            </div>
+        </div>
+        <br/>
+        <hr/>
+        
+	
+
+        
+        
+	</div>
+	
+</body>
+</html>
