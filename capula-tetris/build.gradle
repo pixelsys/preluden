@@ -1,0 +1,32 @@
+plugins {
+  id 'java'
+  id 'idea'
+}
+
+group = 'com.capula'
+archivesBaseName = 'tetris-exercise'
+version = '0.0.1'
+
+compileJava {
+  sourceCompatibility = 11
+  targetCompatibility = 11
+}
+
+repositories {
+  mavenCentral()
+  jcenter()
+}
+
+dependencies {
+  compileOnly 'org.projectlombok:lombok:1.18.10'
+  annotationProcessor 'org.projectlombok:lombok:1.18.10'
+  testImplementation(platform('org.junit:junit-bom:5.7.0'))
+	testImplementation('org.junit.jupiter:junit-jupiter')
+}
+
+test {
+	useJUnitPlatform()
+	testLogging {
+		events "passed", "skipped", "failed"
+	}
+}

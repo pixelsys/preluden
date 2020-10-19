@@ -1,0 +1,34 @@
+# auto-generated
+.gradle
+gradlew*
+gradle/
+.settings
+.classpath
+.project
+.DS_Store
+.idea/
+**/.idea/
+*.iml
+*.ipr
+*.iws
+*.log
+*.xlsx
+
+# Build data
+**/bin
+**/build
+**/out/
+**/classes/
+
+# Generated protos
+**/src/main/protoGen/*
+**/src/main/soapGen/*
+**/src/main/jooqGen/
+
+# Auto-downloaded
+*.checkstyle
+*.makefile
+*.dockerfile
+*.*services.gradle
+*.*clients.gradle
+*.*parent.gradle
